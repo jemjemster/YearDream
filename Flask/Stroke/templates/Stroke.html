@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stroke Prediction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <img src="{{url_for('static', filename='stroke.png')}}" style="width: 20vw; min-width: 240px;"/>
+ 
+
+  <form action="Stroke">
+    <div class="form-group">
+      <label for="gender">gender</label>
+      <input type="text" class="form-control" id="gender" placeholder= "Male : 1 , Female : 2" name="gender" style = "width: 450px;">
+    </div>
+
+    <div class="form-group">
+      <label for="age">age</label>
+      <input type="text" class="form-control" id="age" name="age" style = "width: 450px;">
+    </div>
+
+    <div class="form-group">
+      <label for="hypertension">hypertension</label>
+      <input type="text" class="form-control" id="hypertension" placeholder= "No : 0 , Yes : 1" name="hypertension" style = "width: 450px;">
+    </div>
+    
+    <div class="form-group">
+      <label for="heart_disease">heart_disease</label>
+      <input type="text" class="form-control" id="heart_disease" placeholder= "No : 0 , Yes : 1" name="heart_disease" style = "width: 450px;">
+    </div>
+
+    <div class="form-group">
+      <label for="ever_married">ever_married</label>
+      <input type="text" class="form-control" id="ever_married" placeholder= "No : 0 , Yes : 1" name="ever_married" style = "width: 450px;">
+    </div>
+
+    <div class="form-group">
+      <label for="avg_glucose_level">avg_glucose_level</label>
+      <input type="text" class="form-control" id="avg_glucose_level" placeholder= "ex) 120.84" name="avg_glucose_level" style = "width: 450px;">
+    </div>
+
+    <div class="form-group">
+      <label for="bmi">bmi</label>
+      <input type="text" class="form-control" id="bmi" placeholder= "ex) 30.33" name="bmi" style = "width: 450px;">
+    </div>
+    
+    <div class="form-group">
+      <label for="smoking_status">smoking_status</label>
+      <input type="text" class="form-control" id="smoking_status" placeholder= "Unknown : 0 , No smoking : 1 , Never : 2 , Smokes : 3" name="smoking_status" style = "width: 450px;">
+    </div>
+
+    <button type="submit" class="btn btn-warning" >Submit</button>
+    </form>
+    
+
+    <button type="button" class="btn btn-secondary "> 뇌졸중 걸릴 확률 : {{ '%0.2f'| format(Output|float)}} % </button>
+  </div>
+
+
+
+</body>
+</html>
